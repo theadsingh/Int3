@@ -95,7 +95,7 @@
   </div>
 
   <script>
-    const questions = [
+    const questionsData = [
         { question: "face a complex problem", story: "Early Cancer", lp: "Dive Deep\nEvaluate metric and data" },
         { question: "find root cause of issue", story: "Early Cancer", lp: "Dive Deep\nEvaluate metric and data" },
         { question: "in-depth thought analysis", story: "Early Cancer", lp: "Dive Deep\nEvaluate metric and data" },
@@ -182,7 +182,7 @@
     });
 
     function showRandomQuestion() {
-      if (usedIndices.length === data.length) {
+      if (usedIndices.length === questionsData.length) {
         alert("All questions exhausted.");
         usedIndices = [];
         skippedIndices = [];
@@ -193,11 +193,11 @@
 
       let randomIndex;
       do {
-        randomIndex = Math.floor(Math.random() * data.length);
+        randomIndex = Math.floor(Math.random() * questionsData.length);
       } while (usedIndices.includes(randomIndex) || skippedIndices.includes(randomIndex));
 
       usedIndices.push(randomIndex);
-      currentData = data[randomIndex];
+      currentData = questionsData[randomIndex];
 
       document.getElementById('question').textContent = currentData.question;
       document.getElementById('question').style.display = "block";
@@ -229,6 +229,7 @@
       showRandomQuestion();
     }
   </script>
+
   
 </body>
 </html>
